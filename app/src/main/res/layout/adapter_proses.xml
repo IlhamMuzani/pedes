@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/crv_produkuser"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_3sdp"
+    app:cardCornerRadius="@dimen/_8sdp">
+
+    <RelativeLayout
+        android:id="@+id/layoutproses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="@dimen/_3sdp"
+        >
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imvImageproses"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/imagenoimage"
+            app:riv_corner_radius="@dimen/_8sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical"
+            >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutnama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/imvImageproses"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txvKategoriproses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/imvImage"
+                android:text="Judul"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/txvDeskripsiproses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutnama"
+            android:layout_toEndOf="@+id/imvImageproses"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:text="Deskripsi" />
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_22sdp"-->
+<!--            android:layout_toEndOf="@+id/imvImage"-->
+<!--            android:layout_marginTop="@dimen/_22sdp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/txvTanggal"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="@dimen/_20sdp"-->
+<!--                android:layout_marginTop="@dimen/_7sdp"-->
+<!--                android:layout_marginEnd="@dimen/_8sdp"-->
+<!--                android:layout_marginStart="@dimen/_8sdp"-->
+<!--                android:text="Rp.0"-->
+<!--                android:textStyle="bold" />-->
+
+
+<!--        </LinearLayout>-->
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

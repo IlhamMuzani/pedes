@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/background_stroke_teal"
+        android:elevation="@dimen/_4sdp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/ic_baseline_kembali"
+                app:tint="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/_110sdp"
+                android:layout_height="@dimen/_110sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/paperplane"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:text="OTP Verifications"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edtotp1"
+                    android:layout_width="@dimen/_34sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/edtotp2"
+                    android:layout_width="@dimen/_34sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/edtotp3"
+                    android:layout_width="@dimen/_34sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/edtotp4"
+                    android:layout_width="@dimen/_34sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/edtotp5"
+                    android:layout_width="@dimen/_34sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/edtotp6"
+                    android:layout_width="@dimen/_34sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:maxLength="1"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Belum mendapatkan code?"/>
+
+            <TextView
+                android:id="@+id/kirimulangverifi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:text="Kirim ulang"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_verifi"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:background="@drawable/bg_btn_lapisanabu"
+                android:text="Kirim"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/colorAccent" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

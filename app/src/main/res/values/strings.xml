@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Pengaduan</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Profil</string>
+    <string name="title_notifications">Complaint</string>
+    <string name="alamat">Masukkan Alamat</string>
+    <string name="patokan">Masukkan Patokan</string>
+    <string name="kategori">Masukkan Kategori</string>
+    <string name="masukkan_nama">Masukkan Nama</string>
+    <string name="masukkan_telp">Masukkan Telp</string>
+    <string name="masukkan_password">Masukkan Password</string>
+    <string name="masukkan_password_konfirmasi">Masukkan Password Konfirmasi</string>
+    <string name="content_description_end_icon">content_description_end_icon</string>
+    <string name="title_activity_google_maps">GoogleMapsActivity</string>
+    <string name="title_activity_maps2">MapsActivity2</string>
+    <string name="title_activity_gogglemap">Gogglemap</string>
+
 </resources>

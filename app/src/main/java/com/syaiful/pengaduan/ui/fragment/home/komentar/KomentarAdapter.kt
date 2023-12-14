@@ -8,14 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.syaiful.pengaduan.R
+import com.syaiful.pengaduan.data.model.Constant
 import com.syaiful.pengaduan.data.model.komentar.DataKomentar
-import com.syaiful.pengaduan.data.model.pengaduan.DataPengaduan
+import com.syaiful.pengaduan.ui.utils.GlideHelper
 import kotlin.collections.ArrayList
 
 
-class SelesaiAdapter (val context: Context, var dataKomentar: ArrayList<DataKomentar>,
+class KomentarAdapter (val context: Context, var dataKomentar: ArrayList<DataKomentar>,
                        val clickListener: (DataKomentar, Int, String) -> Unit ):
-    RecyclerView.Adapter<SelesaiAdapter.ViewHolder>() {
+    RecyclerView.Adapter<KomentarAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.adapter_komentar, parent, false)
@@ -25,7 +26,7 @@ class SelesaiAdapter (val context: Context, var dataKomentar: ArrayList<DataKome
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(dataKomentar[position])
-//        GlideHelper.setImage(context, Constant.IP_IMAGE + dataPengaduan[position].gambar!!, holder.view.ivImage)
+//        GlideHelper.setImage(holder.itemView.context, Constant.IP_IMAGE + (dataKomentar[position].gambar ?: ""), holder.ivImage)
 
         // Anda dapat menambahkan clickListener di sini
         holder.view.setOnClickListener {
@@ -37,12 +38,12 @@ class SelesaiAdapter (val context: Context, var dataKomentar: ArrayList<DataKome
         val view = view
         // Deklarasikan tampilan yang akan Anda bind ke objek DataPengaduan
         private val ivImage = view.findViewById<ImageView>(R.id.imvKomentar)
+        private val txvUsername = view.findViewById<TextView>(R.id.username)
         private val txvSomeText = view.findViewById<TextView>(R.id.txvKomentar)
 
         fun bind(dataKomentar: DataKomentar) {
-            // Bind data dari objek DataPengaduan ke tampilan yang sesuai
-//            GlideHelper.setImage(context, Constant.IP_IMAGE + dataPengaduan.gambar!!, ivImage)
-            txvSomeText.text = dataKomentar.komentar // Gantilah dengan nama properti yang sesuai pada DataPengaduan
+//            txvUsername.text = dataKomentar.user.nama
+            txvSomeText.text = dataKomentar.komentar
         }
     }
 

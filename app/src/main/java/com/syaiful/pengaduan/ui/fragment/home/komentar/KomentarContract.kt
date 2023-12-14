@@ -1,11 +1,8 @@
 package com.syaiful.pengaduan.ui.fragment.notifications.tabs.selesai
 
 import com.syaiful.pengaduan.data.model.komentar.ResponseKomentar
-import com.syaiful.pengaduan.data.model.pengaduan.DataPengaduan
-import com.syaiful.pengaduan.data.model.pengaduan.ResponsePengaduanList
-import com.syaiful.pengaduan.data.model.pengaduan.ResponsePengaduanUpdate
 
-interface SelesaiContract {
+interface KomentarContract {
 
     interface Presenter {
         fun getKomentar(id: String)
@@ -16,7 +13,7 @@ interface SelesaiContract {
 
     interface View{
         fun initFragment(view: android.view.View)
-//        fun onloading(loading: Boolean)
+        fun onloading(loading: Boolean)
         fun onloadingswet(loading: Boolean, message: String? = "Loading..")
         fun onResult(responseKomentar: ResponseKomentar)
         fun onResultKomen(responseKomentar: ResponseKomentar)

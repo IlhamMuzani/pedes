@@ -5,27 +5,27 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.syaiful.pengaduan.R
 import com.syaiful.pengaduan.data.database.PrefsManager
 import com.syaiful.pengaduan.data.model.Constant
-import com.syaiful.pengaduan.data.model.komentar.ResponseKomentar
 import com.syaiful.pengaduan.data.model.pengaduan.DataPengaduan
 import com.syaiful.pengaduan.data.model.pengaduan.ResponsePengaduandetail
-import com.syaiful.pengaduan.databinding.ActivityDetailpengaduanBinding
 import com.syaiful.pengaduan.databinding.ActivityDetailpengaduanlistBinding
 import com.syaiful.pengaduan.ui.fragment.UserActivity
 import com.syaiful.pengaduan.ui.fragment.notifications.tabs.proses.ProsesFragment
-import com.syaiful.pengaduan.ui.fragment.notifications.tabs.selesai.SelesaiFragment
+import com.syaiful.pengaduan.ui.fragment.notifications.tabs.selesai.KomentarFragment
 import com.syaiful.pengaduan.ui.sweetalert.SweetAlertDialog
 import com.syaiful.pengaduan.ui.utils.GlideHelper
 
-class DetailpengaduanlistActivity : AppCompatActivity(), DetailpengaduanlistContract.View {
+class DetailpengaduanlistActivity : AppCompatActivity(), DetailpengaduanlistContract.View,
+    OnMapReadyCallback {
     private lateinit var binding: ActivityDetailpengaduanlistBinding
 
     lateinit var presenter: DetailpengaduanlistPresenter
@@ -77,9 +77,13 @@ class DetailpengaduanlistActivity : AppCompatActivity(), DetailpengaduanlistCont
 
         val adapter = ViewPagerAdapter(this.supportFragmentManager)
         adapter.addFragment(ProsesFragment(), "Proses")
-        adapter.addFragment(SelesaiFragment(), "Komentar")
-        binding.btnViepager.adapter = adapter
-        binding.btnTabs.setupWithViewPager(binding.btnViepager)
+        adapter.addFragment(KomentarFragment(), "Komentar")
+//        binding.btnViepager.adapter = adapter
+//        binding.btnTabs.setupWithViewPager(binding.btnViepager)
+
+        binding.btnLihatSelengkapnya.setOnClickListener {
+            startActivity(Intent(this, DetailProsesActivity::class.java))
+        }
 
     }
 
@@ -94,12 +98,26 @@ class DetailpengaduanlistActivity : AppCompatActivity(), DetailpengaduanlistCont
         }
     }
 
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        val latLng = LatLng (pengaduan.latitude!!.toDouble(), pengaduan.longitude!!.toDouble())
+        googleMap.addMarker ( MarkerOptions(). position(latLng).title( pengaduan.patokan ))
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12f))
+    }
+
     override fun onResult(responsePengaduandetail: ResponsePengaduandetail) {
         pengaduan = responsePengaduandetail.data!!
 
         GlideHelper.setImage( applicationContext,Constant.IP_IMAGE + pengaduan.gambar!!, binding.viewPager)
         binding.tvName.text = pengaduan.kategori.nama
         binding.tvDescription.text = pengaduan.deskripsi
+        binding.tvLokasi.text = pengaduan.patokan
+        binding.tvStatus.text = pengaduan.status
+        binding.tanggalProses.text = pengaduan.tanggal_proses
+        binding.tanggalselesai.text = pengaduan.tanggal_selesai
+
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.mapss) as SupportMapFragment
+        mapFragment.getMapAsync( this )
 
     }
 

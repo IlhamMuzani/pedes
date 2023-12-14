@@ -23,16 +23,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun main() {
-//        if (prefsManager.prefIsLogin) {
+        if (prefsManager.prefIsLogin) {
             Handler().postDelayed({
                 startActivity(Intent(this, UserActivity::class.java))
                 finish()
             }, 2000)
-//        } else {
-//            Handler().postDelayed({
-//                startActivity(Intent(this, LoginActivity::class.java))
-//                finish()
-//            }, 2000)
-//        }
+        } else {
+            Handler().postDelayed({
+                startActivity(Intent(this, VisiActivity::class.java))
+                finish()
+            }, 2000)
+        }
     }
 }

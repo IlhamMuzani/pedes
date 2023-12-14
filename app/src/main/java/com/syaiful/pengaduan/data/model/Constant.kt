@@ -3,8 +3,8 @@ package com.syaiful.pengaduan.data.model
 class Constant {
     companion object {
 
-        var IP: String = "http://192.168.43.224/pengaduan_desa/"
-//        var IP: String = "https://pengaduan-desa.ufomediategal.com/"
+//        var IP: String = "http://192.168.43.224/pengaduan_desa/"
+        var IP: String = "https://syaiful-kirom.com/"
         var IP_IMAGE: String = IP + "public/storage/uploads/"
 
         var LATITUDE: String = ""
@@ -20,6 +20,9 @@ class Constant {
 
         var KATEGORI_ID: Int = 0
         var KATEGORINAME: String = ""
+
+            var PATOKAN_ID: Int = 0
+            var PATOKANNAME: String = ""
 
         var IS_CHANGED: Boolean = false
     }

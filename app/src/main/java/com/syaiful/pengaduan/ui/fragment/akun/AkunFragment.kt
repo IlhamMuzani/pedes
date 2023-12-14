@@ -2,6 +2,8 @@ package com.syaiful.pengaduan.ui.fragment.akun
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -130,9 +132,18 @@ class AkunFragment : Fragment(), AkunContract.View {
             .setConfirmText("OK")
             .setConfirmClickListener {
                 it.dismissWithAnimation()
-                startActivity(Intent(requireActivity(), LoginActivity::class.java))
             }
             .show()
+
+        // Delay for 2 seconds before dismissing the alert
+        Handler(Looper.getMainLooper()).postDelayed({
+            sSuccess.dismissWithAnimation()
+
+            // Delay for an additional 2 seconds before starting the new activity
+            Handler(Looper.getMainLooper()).postDelayed({
+                startActivity(Intent(requireActivity(), LoginActivity::class.java))
+            }, 500L) // 2000 milliseconds = 2 seconds
+        }, 1000L) // 2000 milliseconds = 2 seconds
     }
 
 

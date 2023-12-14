@@ -35,21 +35,14 @@ class ProfileUpdatePresenter(val view: ProfileUpdateContract.View): ProfileUpdat
 
     override fun userUpdateProfile(
         id: Long,
-        name: String,
-        old_phone: String,
-        new_phone: String,
-        gender: String,
-        address: String
+        nama: String,
+        telp: String,
     ) {
         view.onLoading(true)
         ApiService.endpoint.userUpdateProfile(
             id,
-            name,
-            old_phone,
-            new_phone,
-            gender,
-            address,
-            "PUT"
+            nama,
+            telp,
         ).enqueue(object : Callback<ResponseUserdetail> {
             override fun onResponse(
                 call: Call<ResponseUserdetail>,

@@ -13,7 +13,6 @@
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
-        android:background="@drawable/background_stroke_teal"
         android:elevation="@dimen/_4sdp"
         android:orientation="vertical">
 
@@ -38,7 +37,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="Title"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_12ssp"
                 tools:ignore="HardcodedText" />
 
         </RelativeLayout>
@@ -70,7 +69,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_stroke_teal"
+                android:background="@drawable/bg_btn_lapisanabu"
                 android:padding="@dimen/_8sdp">
 
                 <EditText
@@ -106,7 +105,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_stroke_teal"
+                    android:background="@drawable/bg_btn_lapisanabu"
                     android:padding="@dimen/_8sdp">
 
                     <TextView
@@ -124,7 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_4sdp"
-                    android:background="@drawable/background_stroke_teal"
+                    android:background="@drawable/bg_btn_lapisanabu"
                     android:padding="@dimen/_8sdp">
 
                     <EditText
@@ -145,43 +144,43 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Pilih Jenis Kelamin *"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
-                tools:ignore="HardcodedText" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/_8sdp"-->
+<!--                android:fontFamily="@font/poppins_medium"-->
+<!--                android:text="Pilih Jenis Kelamin *"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10ssp"-->
+<!--                tools:ignore="HardcodedText" />-->
 
-            <RadioGroup
-                android:id="@+id/rg_gender"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+<!--            <RadioGroup-->
+<!--                android:id="@+id/rg_gender"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
 
-                <RadioButton
-                    android:id="@+id/rb_male"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="Laki-laki"
-                    android:textSize="@dimen/_10ssp"
-                    tools:ignore="HardcodedText" />
+<!--                <RadioButton-->
+<!--                    android:id="@+id/rb_male"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/poppins_medium"-->
+<!--                    android:text="Laki-laki"-->
+<!--                    android:textSize="@dimen/_10ssp"-->
+<!--                    tools:ignore="HardcodedText" />-->
 
-                <RadioButton
-                    android:id="@+id/rb_female"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="Perempuan"
-                    android:textSize="@dimen/_10ssp"
-                    tools:ignore="HardcodedText" />
+<!--                <RadioButton-->
+<!--                    android:id="@+id/rb_female"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/poppins_medium"-->
+<!--                    android:text="Perempuan"-->
+<!--                    android:textSize="@dimen/_10ssp"-->
+<!--                    tools:ignore="HardcodedText" />-->
 
-            </RadioGroup>
+<!--            </RadioGroup>-->
 
             <LinearLayout
                 android:id="@+id/layout_address"

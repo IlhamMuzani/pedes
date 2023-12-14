@@ -14,7 +14,6 @@
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
-        android:background="@drawable/background_stroke_teal"
         android:elevation="@dimen/_4sdp"
         android:orientation="vertical">
 
@@ -23,13 +22,15 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_8sdp">
 
-            <ImageView
-                android:id="@+id/iv_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                app:srcCompat="@drawable/ic_baseline_kembali"
-                app:tint="@color/black" />
+
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_back"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                app:srcCompat="@drawable/ic_baseline_kembali"-->
+<!--                app:tint="@color/black" />-->
 
             <TextView
                 android:id="@+id/tv_title"
@@ -39,7 +40,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="Title"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_12ssp"
                 tools:ignore="HardcodedText" />
 
         </RelativeLayout>
@@ -91,7 +92,7 @@
             android:layout_gravity="start"
             android:layout_marginStart="@dimen/_23sdp"
             android:fontFamily="@font/quicksand_bold"
-            android:text="Masukkan telp dan kata sandimu"
+            android:text="Masukkan telp dan password"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/hitampudar"
             android:textSize="@dimen/_10sdp"

@@ -9,11 +9,8 @@ interface ProfileUpdateContract {
         fun userDetail(id: String)
         fun userUpdateProfile(
             id: Long,
-            name: String,
-            old_phone: String,
-            new_phone: String,
-            gender: String,
-            address: String
+            nama: String,
+            telp: String
         )
     }
 

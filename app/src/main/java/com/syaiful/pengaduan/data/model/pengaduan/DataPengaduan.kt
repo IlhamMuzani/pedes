@@ -14,5 +14,7 @@ class DataPengaduan (
     @SerializedName("longitude") val longitude: String?,
     @SerializedName("gambar") val gambar: String?,
     @SerializedName("status") val status: String?,
+    @SerializedName("tanggal_proses") val tanggal_proses: String?,
+    @SerializedName("tanggal_selesai") val tanggal_selesai: String?,
     @SerializedName("kategori") val kategori: Datakategori,
     )

@@ -3,6 +3,8 @@ package com.syaiful.pengaduan.ui.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import com.syaiful.pengaduan.data.database.PrefsManager
 import com.syaiful.pengaduan.data.model.user.DataUser
 import com.syaiful.pengaduan.data.model.user.ResponseUser
@@ -35,9 +37,9 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
         binding.tvTitle.text = "Login";
 
-        binding.ivBack.setOnClickListener {
-            onBackPressed()
-        }
+//        binding.ivBack.setOnClickListener {
+//            onBackPressed()
+//        }
 
         sLoading = SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE)
         sSuccess = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE).setTitleText("Berhasil")
@@ -109,10 +111,21 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
             .setConfirmClickListener {
                 it.dismissWithAnimation()
                 finish()
-                startActivity(Intent(this, UserActivity::class.java))
+                // Do not start the activity here
             }
             .show()
+
+        // Delay for 2 seconds before dismissing the alert
+        Handler(Looper.getMainLooper()).postDelayed({
+            sSuccess.dismissWithAnimation()
+
+            // Delay for an additional 2 seconds before starting the new activity
+            Handler(Looper.getMainLooper()).postDelayed({
+                startActivity(Intent(this, UserActivity::class.java))
+            }, 500L) // 2000 milliseconds = 2 seconds
+        }, 1000L) // 2000 milliseconds = 2 seconds
     }
+
 
     override fun showSucces(message: String) {
         sSuccess

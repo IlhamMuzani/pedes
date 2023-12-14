@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -18,6 +19,7 @@ import com.syaiful.pengaduan.data.model.pengaduan.DataPengaduan
 import com.syaiful.pengaduan.data.model.pengaduan.ResponsePengaduanList
 import com.syaiful.pengaduan.ui.fragment.UserActivity
 import com.syaiful.pengaduan.ui.fragment.home.proses.ProsesAdapter
+import com.syaiful.pengaduan.ui.pengaduan.AddpengaduanActivity
 import com.syaiful.pengaduan.ui.sweetalert.SweetAlertDialog
 
 class HomeFragment : Fragment(), HomeContract.View {
@@ -26,6 +28,7 @@ class HomeFragment : Fragment(), HomeContract.View {
     lateinit var presenter: HomePresenter
     lateinit var pengaduan: DataPengaduan
     lateinit var pengaduanAdapter: HomeAdapter
+    lateinit var Fab: Button
 
     lateinit var RcvPengaduan : RecyclerView
     lateinit var Swipe : SwipeRefreshLayout
@@ -63,6 +66,7 @@ class HomeFragment : Fragment(), HomeContract.View {
         sSuccess = SweetAlertDialog(requireActivity(), SweetAlertDialog.SUCCESS_TYPE).setTitleText("Berhasil")
         sError = SweetAlertDialog(requireActivity(), SweetAlertDialog.ERROR_TYPE).setTitleText("Gagal !")
         sAlert = SweetAlertDialog(requireActivity(), SweetAlertDialog.WARNING_TYPE).setTitleText("Peringatan !")
+        Fab = view.findViewById(R.id.tambahpengaduan1)
 
 
         RcvPengaduan = view.findViewById(R.id.rcvPengaduan)
@@ -101,6 +105,10 @@ class HomeFragment : Fragment(), HomeContract.View {
             } else {
                 false
             }
+        }
+
+        Fab.setOnClickListener { view ->
+            startActivity(Intent(requireActivity(), AddpengaduanActivity::class.java))
         }
 
     }

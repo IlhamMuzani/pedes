@@ -1,6 +1,5 @@
 package com.syaiful.pengaduan.ui.fragment.notifications.tabs.proses
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,15 +14,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.syaiful.pengaduan.R
 import com.syaiful.pengaduan.data.database.PrefsManager
 import com.syaiful.pengaduan.data.model.Constant
-import com.syaiful.pengaduan.data.model.komentar.DataKomentar
 import com.syaiful.pengaduan.data.model.pengaduan.DataPengaduan
 import com.syaiful.pengaduan.data.model.pengaduan.DetailDataPengaduan
 import com.syaiful.pengaduan.data.model.pengaduan.ResponseDetailPengaduanList
-import com.syaiful.pengaduan.data.model.pengaduan.ResponsePengaduanList
-import com.syaiful.pengaduan.data.model.pengaduan.ResponsePengaduanUpdate
-import com.syaiful.pengaduan.ui.detailpengaduan.DetailpengaduanActivity
+import com.syaiful.pengaduan.ui.fragment.home.HomeAdapter
 import com.syaiful.pengaduan.ui.fragment.home.proses.ProsesAdapter
-import com.syaiful.pengaduan.ui.fragment.notifications.tabs.selesai.SelesaiAdapter
 import com.syaiful.pengaduan.ui.login.LoginActivity
 import com.syaiful.pengaduan.ui.sweetalert.SweetAlertDialog
 
@@ -92,12 +87,17 @@ class ProsesFragment : Fragment(), ProsesContract.View {
 
         prosesAdapater = ProsesAdapter(
             requireActivity(),
-            arrayListOf()
-        ) { detailData: DetailDataPengaduan, position: Int, type: String ->
-
-            detailDataPengaduan = detailData
-
-        }
+            arrayListOf(),
+            { detailDataPengaduans: DetailDataPengaduan, position: Int, type: String ->
+                detailDataPengaduan = detailDataPengaduans
+                when (type) {
+                }
+            },
+            { detailDataPengaduan: DetailDataPengaduan, position: Int ->
+//                Constant.PENGADUAN_ID = dataPengaduan.id!!
+//                requireActivity().startActivity(Intent(requireActivity(), DetailpengaduanlistActivity::class.java))
+            }
+        )
 
         rcvSudahbayar.apply {
             layoutManager = LinearLayoutManager(context)

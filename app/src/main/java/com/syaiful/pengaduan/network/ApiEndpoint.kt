@@ -36,15 +36,11 @@ interface ApiEndpoint {
         @Path("id") id: String
     ) : Call<ResponseUserdetail>
 
-    @POST("userUpdateProfile/{id}")
+    @POST("user/update-profile/{id}")
     fun userUpdateProfile(
         @Path("id") id: Long,
-        @Query("name") name: String,
-        @Query("old_phone") old_phone: String,
-        @Query("new_phone") new_phone: String,
-        @Query("gender") gender: String,
-        @Query("address") address: String,
-        @Query("_method") _method: String
+        @Query("nama") nama: String,
+        @Query("telp") telp: String,
     ): Call<ResponseUserdetail>
 
     @POST("user/u_password/{id}")
@@ -83,7 +79,7 @@ interface ApiEndpoint {
     fun getKategori(
     ): Call<ResponseKategoriList>
 
-    @POST("pengaduan-search")
+    @POST("pengaduan/search")
     fun Searchpengaduan(
         @Query("keyword") keyword: String,
     ): Call<ResponsePengaduanList>

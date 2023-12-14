@@ -5,12 +5,16 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.syaiful.pengaduan.R
 import com.syaiful.pengaduan.data.database.PrefsManager
+import com.syaiful.pengaduan.data.model.Constant
 import com.syaiful.pengaduan.data.model.user.ResponseUser
+import com.syaiful.pengaduan.databinding.ActivityAddpengaduanBinding
+import com.syaiful.pengaduan.databinding.ActivityPasswordbaruBinding
 import com.syaiful.pengaduan.ui.fragment.UserActivity
 import com.syaiful.pengaduan.ui.sweetalert.SweetAlertDialog
 
 
 class PasswordbaruActivity : AppCompatActivity(), PasswordbaruContract.View {
+    private lateinit var binding: ActivityPasswordbaruBinding
 
     lateinit var presenter: PasswordbaruPresenter
     lateinit var prefsManager: PrefsManager
@@ -21,6 +25,9 @@ class PasswordbaruActivity : AppCompatActivity(), PasswordbaruContract.View {
     private lateinit var sAlert: SweetAlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivityPasswordbaruBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passwordbaru)
         presenter = PasswordbaruPresenter(this)
@@ -33,6 +40,8 @@ class PasswordbaruActivity : AppCompatActivity(), PasswordbaruContract.View {
 
     override fun initActivity() {
 
+        binding.tvTitle.text = "Pengaduan";
+
         sLoading = SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE)
         sSuccess = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE).setTitleText("Berhasil")
         sError = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE).setTitleText("Gagal !")
@@ -44,18 +53,18 @@ class PasswordbaruActivity : AppCompatActivity(), PasswordbaruContract.View {
 
     override fun initListener() {
 
-//        ivKembali.setOnClickListener {
-//            onBackPressed()
-//        }
-//
-//        btn_passworbaru.setOnClickListener {
-//            if (edit_ubahtextPassword.text!!.isEmpty()){
-//                showError("Masukkan Password")
-//            } else if (edit_ubahkonfirmasiPassword.text!!.isEmpty()){
-//              showError("Masukkan Konfirmasi Password")
-//            }
-//                presenter.passwordbaru(Constant.USER_ID, edit_ubahtextPassword.text.toString(), edit_ubahkonfirmasiPassword.text.toString())
-//        }
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+
+        binding.btnPassworbaru.setOnClickListener {
+            if (binding.editUbahtextPassword.text!!.isEmpty()){
+                showError("Masukkan Password")
+            } else if (binding.editUbahkonfirmasiPassword.text!!.isEmpty()){
+              showError("Masukkan Konfirmasi Password")
+            }
+                presenter.passwordbaru(Constant.USER_ID, binding.editUbahtextPassword.text.toString(), binding.editUbahkonfirmasiPassword.text.toString())
+        }
     }
 
     override fun onLoading(loading: Boolean, message: String?) {

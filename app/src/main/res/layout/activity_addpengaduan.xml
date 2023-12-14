@@ -15,7 +15,6 @@
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
-        android:background="@drawable/background_stroke_teal"
         android:elevation="@dimen/_4sdp"
         android:orientation="vertical">
 
@@ -40,184 +39,240 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="Title"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_12ssp"
                 tools:ignore="HardcodedText" />
 
         </RelativeLayout>
 
     </LinearLayout>
 
-    <ScrollView
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_20sdp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/_20sdp">
+            android:paddingHorizontal="@dimen/_8sdp">
 
-            <LinearLayout
-                android:id="@+id/linearlayout"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_centerVertical="true"
-                android:background="@drawable/bg_btn_lapisanhijau"
-                android:orientation="vertical"
-                android:backgroundTint="@color/white"
-                android:padding="13dp">
+                android:fontFamily="@font/poppins_medium"
+                android:text="Kategori *"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                tools:ignore="HardcodedText" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_33sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:background="@drawable/bg_btn_lapisanabu">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_39sdp"
-                    android:layout_marginStart="@dimen/_4sdp"
-                    android:layout_marginEnd="@dimen/_4sdp"
-                    android:layout_marginTop="@dimen/_7sdp"
-                    android:background="@drawable/bg_btn_lapisanabu">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_2sdp">
 
                     <Spinner
                         android:id="@+id/edtKategori"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_32sdp"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_2sdp"
-                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:background="@color/white"
                         android:hint="Harga"
                         android:inputType="text"
                         android:textSize="@dimen/_11sdp" />
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:src="@drawable/baseline_arrow_left_24"
+                        android:contentDescription="@null" />
                 </RelativeLayout>
 
 
-                <Button
-                    android:id="@+id/Btn_Lokasi1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Pilih Lokasi"
-                    android:layout_gravity="center"/>
+            </RelativeLayout>
 
-                <RelativeLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/imvImages"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_39sdp"
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:background="@drawable/bg_btn_lapisanabu">
+                    android:layout_height="@dimen/_160sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/img_add_image"
+                    android:padding="@dimen/_1sdp" />
 
-                    <ImageView
-                        android:id="@+id/imvlokasial"
-                        android:layout_width="@dimen/_23sdp"
-                        android:layout_height="@dimen/_23sdp"
-                        android:layout_marginStart="@dimen/_7sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/ic_baseline_location_on_24"
-                        app:tint="@color/Abuabuhitam" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@color/customGray">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="Lokasi"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/hitampudar"
+                        android:textSize="@dimen/_14sdp"
+                        tools:ignore="MissingConstraints" />
 
                     <TextView
                         android:id="@+id/tv_alamat1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_toEndOf="@+id/imvlokasial"
-                        android:text="Lokasi" />
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="lokasi"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/Abuabuhitam"
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="MissingConstraints" />
 
-                </RelativeLayout>
+                </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:startIconContentDescription="@string/content_description_end_icon"
-                    app:startIconDrawable="@drawable/baseline_list_24">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtAlamat"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/patokan"
-                        android:inputType="text"
-                        android:lines="1" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-
-                <ImageView
-                    android:id="@+id/imvImages"
-                    android:layout_width="@dimen/_100sdp"
-                    android:layout_height="@dimen/_100sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_4sdp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img_add_image"/>
-
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_80sdp"
-                        android:layout_marginStart="@dimen/_4sdp"
-                        android:layout_marginEnd="@dimen/_4sdp"
-                        android:layout_marginTop="@dimen/_7sdp"
-                        android:padding="@dimen/_7sdp"
-                        android:background="@drawable/bg_btn_lapisanabu">
-
-
-                        <EditText
-                            android:id="@+id/edtDeskripsi"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:hint="Deskripsi"
-                            android:textSize="@dimen/_11sdp" />
-
-
-                    </RelativeLayout>
-
-                </ScrollView>
 
             </LinearLayout>
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Patokan RT *"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                tools:ignore="HardcodedText" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <!-- Your other layout elements -->
+                android:layout_height="@dimen/_33sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:background="@drawable/bg_btn_lapisanabu">
 
                 <RelativeLayout
-                    android:id="@+id/btnPengaduan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:backgroundTint="@color/colorAccent"
-                    android:background="@drawable/bg_gradasiatasabawah"
-                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_2sdp">
+
+                    <Spinner
+                        android:id="@+id/edtpatokan"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:background="@color/white"
+                        android:hint="Harga"
+                        android:inputType="text"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:src="@drawable/baseline_arrow_left_24"
+                        android:contentDescription="@null" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:padding="@dimen/_7sdp"
+                android:background="@drawable/bg_btn_lapisanabu">
+
+
+                <EditText
+                    android:id="@+id/edtDeskripsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="Deskripsi"
+                    android:textSize="@dimen/_11sdp" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Alamat"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_stroke_teal"
                     android:padding="@dimen/_8sdp">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_address"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
+                        android:background="@null"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Tambah"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_10ssp"
-                        tools:ignore="HardcodedText" />
+                        android:gravity="top"
+                        android:lines="3"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
 
-                </RelativeLayout>
-            </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnPengaduan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_32sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:background="@drawable/button_primary"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Simpan"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp"
+                tools:ignore="HardcodedText" />
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

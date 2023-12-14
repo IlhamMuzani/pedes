@@ -2,6 +2,7 @@ package com.syaiful.pengaduan.ui.fragment.home
 
 import android.content.Context
 import android.content.Intent
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,16 +53,27 @@ class HomeAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val view = view
         // Declare views to be bound to the DataPengaduan object
-        internal val ivImage = view.findViewById<ImageView>(R.id.imvImagehome)
-        private val txvSomeText = view.findViewById<TextView>(R.id.txvDeskripsihome)
-        private val txvKategoris = view.findViewById<TextView>(R.id.txvKategorihome)
+        internal val ivImage = view.findViewById<ImageView>(R.id.iv_image)
+        private val txvSomeText = view.findViewById<TextView>(R.id.tv_deskripsis)
+        private val txvKategoris = view.findViewById<TextView>(R.id.tv_kategori)
 
         fun bind(dataPengaduan: DataPengaduan) {
-//            GlideHelper.setImage(itemView.context, Constant.IP_IMAGE + (dataPengaduan.gambar ?: ""), ivImage)
-            txvSomeText.text = dataPengaduan.deskripsi
-             txvKategoris.text = dataPengaduan.kategori.nama
+            // Set the maximum number of characters you want to display
+            val maxChars = 50
+
+            // Truncate the text and add ellipses if it's too long
+            val truncatedText = if (dataPengaduan.deskripsi!!.length > maxChars) {
+                "${dataPengaduan.deskripsi.substring(0, maxChars)} <b>Selengkapnya..</b>"
+            } else {
+                dataPengaduan.deskripsi
+            }
+
+            // Use HTML formatting to make "Selengkapnya" bold
+            txvSomeText.text = Html.fromHtml(truncatedText, Html.FROM_HTML_MODE_COMPACT)
+            txvKategoris.text = dataPengaduan.kategori.nama
         }
     }
+
 
     fun setData(newDataPengaduan: List<DataPengaduan>) {
         dataPengaduan.clear()

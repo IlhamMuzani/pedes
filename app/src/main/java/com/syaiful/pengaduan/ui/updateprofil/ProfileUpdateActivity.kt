@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.PhoneAuthProvider
 import com.syaiful.pengaduan.R
 import com.syaiful.pengaduan.data.database.PrefsManager
+import com.syaiful.pengaduan.data.model.Constant
+import com.syaiful.pengaduan.data.model.user.DataUser
 import com.syaiful.pengaduan.data.model.user.ResponseUserdetail
 import com.syaiful.pengaduan.databinding.ActivityProfileUpdateBinding
 import com.syaiful.pengaduan.databinding.ActivityRegisterBinding
@@ -18,22 +20,13 @@ class ProfileUpdateActivity : AppCompatActivity(), ProfileUpdateContract.View {
 
     lateinit var prefManager: PrefsManager
     lateinit var presenter: ProfileUpdatePresenter
+    lateinit var user: DataUser
 
     private lateinit var sLoading: SweetAlertDialog
     private lateinit var sSuccess: SweetAlertDialog
     private lateinit var sError: SweetAlertDialog
     private lateinit var sAlert: SweetAlertDialog
 
-    private var checkLocation: Int = 0
-
-    private lateinit var oldphone: String
-
-    // Firebase Phone
-    private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
-    private var storedVerificationId: String? = ""
-    private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
-    private var code: String? = null
-    var phone: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +35,7 @@ class ProfileUpdateActivity : AppCompatActivity(), ProfileUpdateContract.View {
         setContentView(view)
         prefManager = PrefsManager(this)
         presenter = ProfileUpdatePresenter(this)
+        presenter.userDetail(prefManager.prefsId)
 
     }
 
@@ -57,7 +51,7 @@ class ProfileUpdateActivity : AppCompatActivity(), ProfileUpdateContract.View {
 
     @SuppressLint("SetTextI18n")
     override fun initActivity() {
-        binding.tvTitle.text = "Update Profil";
+        binding.tvTitle.text = "Perbarui Profil";
 
         binding.ivBack.setOnClickListener {
             onBackPressed()
@@ -70,51 +64,29 @@ class ProfileUpdateActivity : AppCompatActivity(), ProfileUpdateContract.View {
     }
 
     override fun initListener() {
-//        iv_back.setOnClickListener {
-//            onBackPressed()
-//        }
+        binding.tvTitle.text = "Perbarui Profil";
 
-//        binding.btn_save.setOnClickListener {
-//            val radioId = rg_gender.checkedRadioButtonId
-//            val radioButton = findViewById<RadioButton>(radioId)
-//            val gender = radioButton.text
-////            Toast.makeText(applicationContext, "$gender", Toast.LENGTH_SHORT).show()
-//            val name = et_name.text
-//            phone = et_phone.text.trim().toString()
-//            val address = tv_address.text
-//            when {
-//                name.isEmpty() -> {
-//                    validationError(et_name, "Nama lengkap tidak boleh kosong!")
-//                }
-//                !isAlphabetical(name.toString()) -> {
-//                    showError("Tidak dapat memasukan simbol atau angka pada kolom nama!")
-//                }
-//                phone.isEmpty() -> {
-//                    validationError(et_phone, "Nomor telepon tidak boleh kosong!")
-//                }
-//                phone.length < 9 -> {
-//                    showError("Masukan nomor telepon dengan benar")
-//                }
-//                tv_address.text == "" -> {
-//                    showError("Alamat tidak sesuai!")
-//                }
-//                gender.isEmpty() -> {
-//                    showError("Pilih jenis kelamin!")
-//                }
-//                else ->
-//                    presenter.userUpdateProfile(
-//                        prefManager.prefId,
-//                        name.toString(),
-//                        oldphone,
-//                        phone,
-//                        gender.toString(),
-//                        address.toString()
-//                    )
-//            }
-//        }
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+
+        binding.btnSave.setOnClickListener {
+            if (binding.etName.text!!.isEmpty()) {
+                showError("Masukkan Nama !")
+            } else if (binding.etPhone.text!!.isEmpty()) {
+                showError("Masukkan Telp !")
+            } else {
+                presenter.userUpdateProfile(
+                    Constant.USER_ID,
+                    binding.etName.text.toString(),
+                    binding.etPhone.text.toString()
+                )
+            }
+        }
     }
 
-    override fun onLoading(loading: Boolean, message: String?) {
+
+        override fun onLoading(loading: Boolean, message: String?) {
         when (loading) {
             true -> sLoading.setTitleText(message).show()
             false -> sLoading.dismiss()
@@ -123,60 +95,29 @@ class ProfileUpdateActivity : AppCompatActivity(), ProfileUpdateContract.View {
 
     @SuppressLint("SetTextI18n")
     override fun onResultDetail(responseUserdetail: ResponseUserdetail) {
-        val status: Boolean = responseUserdetail.status
-        val message: String = responseUserdetail.message!!
+        user = responseUserdetail.data!!
 
-//        if (status) {
-//            val user = responseUserdetail.user!!
-//            et_name.setText(user.name)
-//            et_phone.setText(user.phone)
-//            oldphone = user.phone!!
-//            when (user.gender) {
-//                "Laki-laki" -> {
-//                    rb_male.isChecked = true
-//                }
-//                "Perempuan" -> {
-//                    rb_female.isChecked = true
-//                }
-//                else -> {
-//                    rb_male.isChecked = true
-//                }
-//            }
-//            if (user.address != null) {
-//                layout_address.visibility = View.VISIBLE
-//                if (checkLocation == 0) {
-//                    Constant.LATITUDE = user.latitude!!
-//                    Constant.LONGITUDE = user.longitude!!
-//                    tv_address.text = user.address
-//                    btn_location.text = "Ubah Lokasi"
-//                    checkLocation = 1
-//                }
-//            } else {
-//                tv_address.visibility = View.GONE
-//                btn_location.text = "Tambah Lokasi"
-//            }
-//        } else {
-//            showError(message)
+//        if (user.foto.isNullOrEmpty()){
+//        }else{
+//            GlideHelper.setImage(this, Constant.IP_IMAGE + user.foto, fotoprofile)
 //        }
+
+        binding.etName.setText( user.nama )
+        binding.etPhone.setText( user.telp )
+
+
     }
 
     override fun onResultUpdate(responseUserDetail: ResponseUserdetail) {
         val status: Boolean = responseUserDetail.status
         val message: String = responseUserDetail.message!!
+        if (status){
+//            val user: DataUser = responseUserDetail.data!!
 
-//        if (status) {
-//            if (message == "Lakukan verifikasi OTP untuk memperbarui nomor telepon") {
-//                val user = responseUserDetail.user!!
-//                Constant.UPDATE = true
-//                Constant.USER_ID = user.id!!
-////                Toast.makeText(applicationContext, "+62$phone", Toast.LENGTH_SHORT).show()
-//                showAlertVerify("+62$phone", message)
-//            } else {
-//                showSuccess(message)
-//            }
-//        } else {
-//            showError(message)
-//        }
+            showSuccess(message)
+        }else{
+                showError(message)
+        }
     }
 
     override fun showSuccess(message: String) {

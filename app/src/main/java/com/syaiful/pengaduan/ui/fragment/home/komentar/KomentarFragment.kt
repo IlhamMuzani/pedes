@@ -1,7 +1,5 @@
 package com.syaiful.pengaduan.ui.fragment.notifications.tabs.selesai
 
-import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,21 +18,17 @@ import com.syaiful.pengaduan.data.database.PrefsManager
 import com.syaiful.pengaduan.data.model.Constant
 import com.syaiful.pengaduan.data.model.komentar.DataKomentar
 import com.syaiful.pengaduan.data.model.komentar.ResponseKomentar
-import com.syaiful.pengaduan.data.model.pengaduan.DataPengaduan
-import com.syaiful.pengaduan.data.model.pengaduan.ResponsePengaduanList
-import com.syaiful.pengaduan.data.model.pengaduan.ResponsePengaduanUpdate
-import com.syaiful.pengaduan.ui.login.LoginActivity
 import com.syaiful.pengaduan.ui.sweetalert.SweetAlertDialog
 
-class SelesaiFragment : Fragment(), SelesaiContract.View {
+class KomentarFragment : Fragment(), KomentarContract.View {
 
-    lateinit var presenter: SelesaiPresenter
-    lateinit var selesaiAdapter: SelesaiAdapter
+    lateinit var presenter: KomentarPresenter
+    lateinit var selesaiAdapter: KomentarAdapter
     lateinit var komentar: DataKomentar
     lateinit var prefsManager: PrefsManager
 
     lateinit var rcvSelesai: RecyclerView
-//    lateinit var swipeSelesai: SwipeRefreshLayout
+    lateinit var Swipe: SwipeRefreshLayout
     lateinit var layoutkosong: LinearLayout
 //    lateinit var lin_refresh: LinearLayout
     lateinit var gambarKosong: ImageView
@@ -53,7 +47,7 @@ class SelesaiFragment : Fragment(), SelesaiContract.View {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_komentar, container, false)
 
-        presenter = SelesaiPresenter(this)
+        presenter = KomentarPresenter(this)
         prefsManager = PrefsManager(requireActivity())
 
         initFragment(view)
@@ -73,14 +67,13 @@ class SelesaiFragment : Fragment(), SelesaiContract.View {
         sAlert = SweetAlertDialog(requireActivity(), SweetAlertDialog.WARNING_TYPE).setTitleText("Perhatian!")
 
         rcvSelesai = view.findViewById(R.id.rcvSelesai)
-//        swipeSelesai = view.findViewById(R.id.swipeSelesai)
+        Swipe = view.findViewById(R.id.swipeKom)
         layoutkosong = view.findViewById(R.id.layoutdatakosongselesai)
-//        lin_refresh = view.findViewById(R.id.lin_refreshselesai)
         gambarKosong = view.findViewById(R.id.gambardatakosong3)
         BtnKomens = view.findViewById(R.id.tambahkomentar)
 
 
-        selesaiAdapter = SelesaiAdapter(
+        selesaiAdapter = KomentarAdapter(
             requireActivity(),
             arrayListOf()
         ) { dataKomentar: DataKomentar, position: Int, type: String ->
@@ -93,18 +86,12 @@ class SelesaiFragment : Fragment(), SelesaiContract.View {
             adapter = selesaiAdapter
         }
 
-//        lin_refresh.setOnClickListener {
-//            if (prefsManager.prefIsLogin) {
-//                showSuccess("")
-//                presenter.getSelesai(prefsManager.prefsId.toLong())
-//            }
-//        }
 
-//        swipeSelesai.setOnRefreshListener {
-//            if (prefsManager.prefIsLogin) {
-//                presenter.getSelesai(prefsManager.prefsId.toLong())
-//            }
-//        }
+        Swipe.setOnRefreshListener {
+            if (prefsManager.prefIsLogin) {
+                presenter.getKomentar(Constant.PENGADUAN_ID.toString())
+            }
+        }
 
         BtnKomens.setOnClickListener {
             showKomentar()
@@ -115,6 +102,12 @@ class SelesaiFragment : Fragment(), SelesaiContract.View {
         }
     }
 
+    override fun onloading(loading: Boolean) {
+        when(loading){
+            true -> Swipe.isRefreshing = true
+            false -> Swipe.isRefreshing = false
+        }
+    }
     override fun onloadingswet(loading: Boolean, message: String?) {
         when(loading){
             true -> sLoading.setContentText(message).show()
@@ -135,8 +128,11 @@ class SelesaiFragment : Fragment(), SelesaiContract.View {
     }
 
     override fun onResultKomen(responseKomentar: ResponseKomentar) {
-        showKomentar()
-    }
+        if (responseKomentar.status) {
+            showSuccessOk(responseKomentar.message)
+        } else {
+            showError(responseKomentar.message)
+        }    }
 
     override fun showKomentar() {
         val dialog = BottomSheetDialog(requireActivity())
@@ -168,9 +164,7 @@ class SelesaiFragment : Fragment(), SelesaiContract.View {
             .setContentText(message)
             .setConfirmText("OK")
             .setConfirmClickListener {
-                it.dismissWithAnimation()
-//                finish()
-//                startActivity(Intent(requireActivity(), UserActivity::class.java))
+                it.dismiss()
             }
             .show()
     }

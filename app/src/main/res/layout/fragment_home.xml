@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     android:id="@+id/swipe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -103,7 +108,7 @@
             android:layout_marginHorizontal="1dp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:background="@drawable/bg_btn_lapisanhijau"
+            android:background="@drawable/bg_btn_lapisanabu"
             android:layout_marginTop="@dimen/_10sdp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -121,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins_medium"
                 android:background="@android:color/transparent"
                 android:drawablePadding="10dp"
                 android:hint="Search"
@@ -131,17 +137,35 @@
 
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvPengaduan"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_3sdp" />
+            android:layout_height="match_parent">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvPengaduan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+            <Button
+                android:id="@+id/tambahpengaduan1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tambah"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_10sdp"/>
+        </RelativeLayout>
 
     </LinearLayout>
 
 
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

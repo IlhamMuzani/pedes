@@ -19,7 +19,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_stroke_teal"
             android:elevation="@dimen/_4sdp"
             android:orientation="vertical">
 
@@ -44,7 +43,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Title"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_12sdp"
                     tools:ignore="HardcodedText" />
 
             </RelativeLayout>
@@ -73,7 +72,7 @@
                         android:id="@+id/iv_profile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/background_stroke_primary_oval"
+                        android:background="@drawable/bg_btn_lapisanabusilfer"
                         android:padding="@dimen/_4sdp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/ic_akun"
@@ -85,7 +84,7 @@
                         android:layout_height="@dimen/_24sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:background="@drawable/background_stroke_primary_oval"
+                        android:background="@drawable/bg_btn_lapisanabusilfer"
                         android:gravity="center"
                         android:padding="@dimen/_1sdp">
 
@@ -125,7 +124,7 @@
                 android:id="@+id/layout_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_stroke_teal"
+                android:background="@drawable/bg_btn_lapisanabusilfer2"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -158,7 +157,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:background="@drawable/background_stroke_teal"
+                android:background="@drawable/bg_btn_lapisanabusilfer2"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -191,7 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:background="@drawable/background_stroke_teal"
+                android:background="@drawable/bg_btn_lapisanabusilfer2"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -229,7 +228,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:text="Logout"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_12sdp"
                 tools:ignore="HardcodedText" />
 
         </LinearLayout>

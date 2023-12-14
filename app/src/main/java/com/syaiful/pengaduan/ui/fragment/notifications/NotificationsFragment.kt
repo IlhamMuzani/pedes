@@ -94,7 +94,7 @@ class NotificationsFragment : Fragment(), NotificationsContract.View {
         layoutbelumlogin = view.findViewById(R.id.layoutkosongLogin)
         title = view.findViewById(R.id.tv_title1)
 
-        title.text = "Pengaduan Kamu";
+        title.text = "Pengaduan Anda";
 
 
         menungguAdapter = PengaduanAdapter(

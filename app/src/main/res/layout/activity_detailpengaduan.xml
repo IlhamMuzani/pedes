@@ -17,7 +17,6 @@
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
-        android:background="@drawable/background_stroke_teal"
         android:elevation="@dimen/_4sdp"
         android:orientation="vertical">
 
@@ -42,7 +41,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="Title"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_12ssp"
                 tools:ignore="HardcodedText" />
 
         </RelativeLayout>
@@ -81,7 +80,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_8sdp"
-                        android:background="@drawable/background_stroke_teal"
+                        android:background="@drawable/bg_btn_lapisanabusilfer2"
                         android:orientation="vertical"
                         android:padding="@dimen/_8sdp">
 
@@ -112,7 +111,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_8sdp"
-                        android:background="@drawable/background_stroke_teal"
+                        android:background="@drawable/bg_btn_lapisanabusilfer2"
                         android:orientation="vertical"
                         android:padding="@dimen/_8sdp">
 

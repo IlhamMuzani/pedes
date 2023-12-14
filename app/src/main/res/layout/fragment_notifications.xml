@@ -20,7 +20,6 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:background="@drawable/background_stroke_teal"
             android:elevation="@dimen/_4sdp"
             android:orientation="vertical">
 
@@ -37,7 +36,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Title"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_12sdp"
                     tools:ignore="HardcodedText" />
 
             </RelativeLayout>
@@ -72,11 +71,10 @@
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/background_stroke_teal"
                     android:drawableStart="@drawable/baseline_add_24"
-                    android:drawablePadding="@dimen/_2sdp"
+                    android:visibility="gone"
                     android:fontFamily="@font/poppins_medium"
                     android:paddingHorizontal="@dimen/_8sdp"
                     android:text="Tambah"
-                    android:visibility="gone"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10ssp"
@@ -93,6 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_7sdp" />
 
         <LinearLayout

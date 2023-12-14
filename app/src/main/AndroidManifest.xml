@@ -65,6 +65,9 @@
         <activity android:name="com.syaiful.pengaduan.ui.verifikasi.PhoneVerifiActivity" />
         <activity android:name="com.syaiful.pengaduan.ui.updateprofil.ProfileUpdateActivity" />
         <activity android:name="com.syaiful.pengaduan.ui.fragment.home.detailpengaduanlist.DetailpengaduanlistActivity" />
+        <activity android:name="com.syaiful.pengaduan.ui.passwordbaru.PasswordbaruActivity" />
+        <activity android:name="com.syaiful.pengaduan.ui.VisiActivity" />
+        <activity android:name="com.syaiful.pengaduan.ui.fragment.home.detailpengaduanlist.DetailProsesActivity" />
     </application>
 
 </manifest>

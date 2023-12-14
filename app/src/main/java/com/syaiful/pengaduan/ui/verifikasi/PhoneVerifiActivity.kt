@@ -77,6 +77,12 @@ class PhoneVerifiActivity : AppCompatActivity(), PhoneverifiContract.View {
 
         setupInput()
 
+        binding.tvTitle.text = "Verifikasi";
+
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     override fun initListener() {

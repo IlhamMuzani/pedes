@@ -67,7 +67,7 @@ class UserActivity : AppCompatActivity() {
                     callFragment(2, fragmentAkun)
                     }
                     else {
-                        startActivity(Intent(this, DaftarActivity::class.java))
+                        startActivity(Intent(this, LoginActivity::class.java))
                     }
                 }
             }

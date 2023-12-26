@@ -43,7 +43,7 @@ interface ApiEndpoint {
         @Query("telp") telp: String,
     ): Call<ResponseUserdetail>
 
-    @POST("user/u_password/{id}")
+    @POST("user/update-password/{id}")
     fun Passwordbaru(
         @Path("id") id: Long,
         @Query("password") password: String,

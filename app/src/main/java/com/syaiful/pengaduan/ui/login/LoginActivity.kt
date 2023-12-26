@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 //            startActivity(Intent(this, RegisterActivity::class.java))
 //        }
 
-        dummy()
+//        dummy()
 
 //        ivKembali.setOnClickListener {
 //            onBackPressed()

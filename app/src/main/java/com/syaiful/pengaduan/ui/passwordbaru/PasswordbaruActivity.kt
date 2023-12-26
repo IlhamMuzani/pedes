@@ -9,6 +9,7 @@ import com.syaiful.pengaduan.data.model.Constant
 import com.syaiful.pengaduan.data.model.user.ResponseUser
 import com.syaiful.pengaduan.databinding.ActivityAddpengaduanBinding
 import com.syaiful.pengaduan.databinding.ActivityPasswordbaruBinding
+import com.syaiful.pengaduan.databinding.ActivityPhoneverifiBinding
 import com.syaiful.pengaduan.ui.fragment.UserActivity
 import com.syaiful.pengaduan.ui.sweetalert.SweetAlertDialog
 
@@ -25,11 +26,10 @@ class PasswordbaruActivity : AppCompatActivity(), PasswordbaruContract.View {
     private lateinit var sAlert: SweetAlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivityPasswordbaruBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_passwordbaru)
         presenter = PasswordbaruPresenter(this)
         prefsManager = PrefsManager(this)
     }
@@ -40,7 +40,7 @@ class PasswordbaruActivity : AppCompatActivity(), PasswordbaruContract.View {
 
     override fun initActivity() {
 
-        binding.tvTitle.text = "Pengaduan";
+        binding.tvTitle.text = "Perbarui Password";
 
         sLoading = SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE)
         sSuccess = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE).setTitleText("Berhasil")

@@ -42,7 +42,7 @@ class KomentarAdapter (val context: Context, var dataKomentar: ArrayList<DataKom
         private val txvSomeText = view.findViewById<TextView>(R.id.txvKomentar)
 
         fun bind(dataKomentar: DataKomentar) {
-//            txvUsername.text = dataKomentar.user.nama
+            txvUsername.text = dataKomentar.user.nama
             txvSomeText.text = dataKomentar.komentar
         }
     }

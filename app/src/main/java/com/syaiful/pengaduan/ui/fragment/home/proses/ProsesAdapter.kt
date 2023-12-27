@@ -46,11 +46,11 @@ class ProsesAdapter(
         GlideHelper.setImage(holder.itemView.context, Constant.IP_IMAGE + (detailDataPengaduan[position].gambar ?: ""), holder.ivImage)
 
         // Set clickListener untuk layoutDetail
-        holder.view.findViewById<View>(R.id.layouthomes).setOnClickListener {
-            detailClickListener(detailDataPengaduan[position], position)
-            Constant.PENGADUAN_ID = detailDataPengaduan[position].id!!
-            holder.itemView.context.startActivity(Intent(holder.itemView.context, DetailpengaduanlistActivity::class.java))
-        }
+//        holder.view.findViewById<View>(R.id.layouthomes).setOnClickListener {
+//            detailClickListener(detailDataPengaduan[position], position)
+//            Constant.PENGADUAN_ID = detailDataPengaduan[position].id!!
+//            holder.itemView.context.startActivity(Intent(holder.itemView.context, DetailpengaduanlistActivity::class.java))
+//        }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

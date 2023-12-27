@@ -75,27 +75,27 @@
                         android:background="@drawable/bg_btn_lapisanabusilfer"
                         android:padding="@dimen/_4sdp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/ic_akun"
+                        android:src="@drawable/profile"
                         app:riv_oval="true" />
 
-                    <LinearLayout
-                        android:id="@+id/layout_image"
-                        android:layout_width="@dimen/_24sdp"
-                        android:layout_height="@dimen/_24sdp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:background="@drawable/bg_btn_lapisanabusilfer"
-                        android:gravity="center"
-                        android:padding="@dimen/_1sdp">
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/layout_image"-->
+<!--                        android:layout_width="@dimen/_24sdp"-->
+<!--                        android:layout_height="@dimen/_24sdp"-->
+<!--                        android:layout_alignParentEnd="true"-->
+<!--                        android:layout_alignParentBottom="true"-->
+<!--                        android:background="@drawable/bg_btn_lapisanabusilfer"-->
+<!--                        android:gravity="center"-->
+<!--                        android:padding="@dimen/_1sdp">-->
 
-                        <ImageView
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_add_a_photo_24"
-                            app:tint="@color/black" />
+<!--&lt;!&ndash;                        <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="@dimen/_16sdp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="@dimen/_16sdp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:src="@drawable/ic_baseline_add_a_photo_24"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:tint="@color/black" />&ndash;&gt;-->
 
-                    </LinearLayout>
+<!--                    </LinearLayout>-->
 
                 </RelativeLayout>
 
@@ -185,38 +185,38 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/layout_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:background="@drawable/bg_btn_lapisanabusilfer2"
-                android:foreground="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="@dimen/_8sdp">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/layout_address"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/_8sdp"-->
+<!--                android:background="@drawable/bg_btn_lapisanabusilfer2"-->
+<!--                android:foreground="?attr/selectableItemBackground"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:padding="@dimen/_8sdp">-->
 
-                <ImageView
-                    android:layout_width="@dimen/_16sdp"
-                    android:layout_height="@dimen/_16sdp"
-                    android:src="@drawable/ic_baseline_my_location_24"
-                    app:tint="@color/black" />
+<!--                <ImageView-->
+<!--                    android:layout_width="@dimen/_16sdp"-->
+<!--                    android:layout_height="@dimen/_16sdp"-->
+<!--                    android:src="@drawable/ic_baseline_my_location_24"-->
+<!--                    app:tint="@color/black" />-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center_vertical"
-                    android:importantForAutofill="no"
-                    android:text="Alamat Saya"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10ssp"
-                    app:drawableEndCompat="@drawable/ic_baseline_chevron_right_24"
-                    app:drawableTint="@color/black"
-                    tools:ignore="HardcodedText" />
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="@dimen/_8sdp"-->
+<!--                    android:fontFamily="@font/poppins_medium"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:importantForAutofill="no"-->
+<!--                    android:text="Alamat Saya"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/_10ssp"-->
+<!--                    app:drawableEndCompat="@drawable/ic_baseline_chevron_right_24"-->
+<!--                    app:drawableTint="@color/black"-->
+<!--                    tools:ignore="HardcodedText" />-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_logout"

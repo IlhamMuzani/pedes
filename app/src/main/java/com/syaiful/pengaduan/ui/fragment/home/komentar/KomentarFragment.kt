@@ -39,6 +39,7 @@ class KomentarFragment : Fragment(), KomentarContract.View {
     lateinit var sAlert: SweetAlertDialog
     lateinit var sError: SweetAlertDialog
     lateinit var sSuccess: SweetAlertDialog
+    private var isActivityLoaded = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -94,12 +95,21 @@ class KomentarFragment : Fragment(), KomentarContract.View {
         }
 
         BtnKomens.setOnClickListener {
-            showKomentar()
+            if (!isActivityLoaded) {
+                showKomentar()
+                isActivityLoaded = true
+            }
         }
 
         gambarKosong.setOnClickListener {
             showError("Data Tidak Ada !!")
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Setel isActivityLoaded menjadi false agar aktivitas dapat dimuat lagi
+        isActivityLoaded = false
     }
 
     override fun onloading(loading: Boolean) {

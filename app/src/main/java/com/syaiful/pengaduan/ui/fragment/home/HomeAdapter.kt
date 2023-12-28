@@ -17,13 +17,17 @@ import com.syaiful.pengaduan.ui.utils.GlideHelper
 import kotlin.collections.ArrayList
 
 
+
 class HomeAdapter(
     val context: Context,
     var dataPengaduan: ArrayList<DataPengaduan>,
     val clickListener: (DataPengaduan, Int, String) -> Unit,
     val detailClickListener: (DataPengaduan, Int) -> Unit // Tambahkan clickListener baru
 ) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
-
+    private var isActivityLoaded = false
+    fun onRecyclerViewVisible() {
+        isActivityLoaded = false
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.adapter_home, parent, false)
     )
@@ -44,11 +48,25 @@ class HomeAdapter(
 
         // Set clickListener untuk layoutDetail
         holder.view.findViewById<View>(R.id.layouthome).setOnClickListener {
-            detailClickListener(dataPengaduan[position], position)
-            Constant.PENGADUAN_ID = dataPengaduan[position].id!!
-            holder.itemView.context.startActivity(Intent(holder.itemView.context, DetailpengaduanlistActivity::class.java))
+            if (!isActivityLoaded) {
+                // Setel isActivityLoaded menjadi true sebelum melakukan intent
+                isActivityLoaded = true
+
+                // Panggil detailClickListener
+                detailClickListener(dataPengaduan[position], position)
+
+                // Lakukan intent
+                Constant.PENGADUAN_ID = dataPengaduan[position].id!!
+                holder.itemView.context.startActivity(
+                    Intent(
+                        holder.itemView.context,
+                        DetailpengaduanlistActivity::class.java
+                    )
+                )
+            }
         }
     }
+
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val view = view

@@ -42,6 +42,7 @@ class AkunFragment : Fragment(), AkunContract.View {
     lateinit var sAlert: SweetAlertDialog
     lateinit var sError: SweetAlertDialog
     lateinit var sSuccess: SweetAlertDialog
+    private var isActivityLoaded = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -90,17 +91,26 @@ class AkunFragment : Fragment(), AkunContract.View {
 //        }
 
         Btnpasswordbaru.setOnClickListener {
+            if (!isActivityLoaded) {
             Constant.USER_ID = prefsManager.prefsId.toLong()
             startActivity(Intent(requireActivity(), PasswordbaruActivity::class.java))
+                isActivityLoaded = true
+            }
         }
 
         BtnUbahProfil.setOnClickListener {
-            Constant.USER_ID = prefsManager.prefsId.toLong()
-            startActivity(Intent(requireActivity(), ProfileUpdateActivity::class.java))
+            if (!isActivityLoaded) {
+                Constant.USER_ID = prefsManager.prefsId.toLong()
+                startActivity(Intent(requireActivity(), ProfileUpdateActivity::class.java))
+                isActivityLoaded = true
+            }
         }
 
         BtnLogout.setOnClickListener {
-            presenter.doLogout(prefsManager)
+            if (!isActivityLoaded) {
+                presenter.doLogout(prefsManager)
+                isActivityLoaded = true
+            }
         }
 
     }
@@ -109,6 +119,12 @@ class AkunFragment : Fragment(), AkunContract.View {
         super.onStart()
         presenter.profildetail(prefsManager.prefsId)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Setel isActivityLoaded menjadi false agar aktivitas dapat dimuat lagi
+        isActivityLoaded = false
     }
 
     override fun onResultLogin(prefsManageruser: PrefsManager) {

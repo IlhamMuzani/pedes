@@ -31,6 +31,7 @@ class DetailpengaduanlistActivity : AppCompatActivity(), DetailpengaduanlistCont
     lateinit var presenter: DetailpengaduanlistPresenter
     lateinit var pengaduan: DataPengaduan
     lateinit var prefsManager: PrefsManager
+    private var isActivityLoaded = false
 
     private var uriImage: Uri? = null
     private var pickImage = 1
@@ -82,9 +83,18 @@ class DetailpengaduanlistActivity : AppCompatActivity(), DetailpengaduanlistCont
 //        binding.btnTabs.setupWithViewPager(binding.btnViepager)
 
         binding.btnLihatSelengkapnya.setOnClickListener {
-            startActivity(Intent(this, DetailProsesActivity::class.java))
+            if (!isActivityLoaded) {
+                startActivity(Intent(this, DetailProsesActivity::class.java))
+                isActivityLoaded = true
+            }
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Setel isActivityLoaded menjadi false agar aktivitas dapat dimuat lagi
+        isActivityLoaded = false
     }
 
     override fun onLoading(loading: Boolean, message: String?) {

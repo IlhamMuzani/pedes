@@ -38,6 +38,7 @@ class HomeFragment : Fragment(), HomeContract.View {
     private lateinit var sSuccess: SweetAlertDialog
     private lateinit var sError: SweetAlertDialog
     private lateinit var sAlert: SweetAlertDialog
+    private var isActivityLoaded = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -108,11 +109,20 @@ class HomeFragment : Fragment(), HomeContract.View {
         }
 
         Fab.setOnClickListener { view ->
-            startActivity(Intent(requireActivity(), AddpengaduanActivity::class.java))
+            if (!isActivityLoaded) {
+                startActivity(Intent(requireActivity(), AddpengaduanActivity::class.java))
+                isActivityLoaded = true
+            }
         }
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Setel isActivityLoaded menjadi false agar aktivitas dapat dimuat lagi
+        isActivityLoaded = false
+        pengaduanAdapter.onRecyclerViewVisible()
+    }
 
     override fun onLoading(loading: Boolean) {
         when(loading){

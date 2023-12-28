@@ -167,13 +167,13 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text="Belum Punya akun??"/>
 
-                <TextView
-                    android:id="@+id/txtlupapassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="end"
-                    android:text="Lupa Password??"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/txtlupapassword"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_10sdp"-->
+<!--                    android:gravity="end"-->
+<!--                    android:text="Lupa Password??"/>-->
 
             </LinearLayout>
 

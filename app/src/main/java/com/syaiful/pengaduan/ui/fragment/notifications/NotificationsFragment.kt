@@ -43,6 +43,7 @@ class NotificationsFragment : Fragment(), NotificationsContract.View {
     lateinit var gambarKosong : ImageView
     lateinit var logindulu : ImageView
     lateinit var title : TextView
+    private var isActivityLoaded = false
 
     lateinit var sLoading: SweetAlertDialog
     lateinit var sAlert: SweetAlertDialog
@@ -138,8 +139,18 @@ class NotificationsFragment : Fragment(), NotificationsContract.View {
         }
 
         Fab.setOnClickListener { view ->
-            startActivity(Intent(requireActivity(), AddpengaduanActivity::class.java))
+            if (!isActivityLoaded) {
+                startActivity(Intent(requireActivity(), AddpengaduanActivity::class.java))
+                isActivityLoaded = true
+            }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Setel isActivityLoaded menjadi false agar aktivitas dapat dimuat lagi
+        isActivityLoaded = false
+        menungguAdapter.onRecyclerViewVisible()
     }
 
     override fun onloading(loading: Boolean) {

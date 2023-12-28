@@ -21,6 +21,7 @@ class VisiActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private var isRegisterButtonSelected = false
     private var isLoginButtonSelected = false
+    private var isActivityLoaded = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +37,16 @@ class VisiActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun main() {
         binding.textViewRegister.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            if (!isActivityLoaded) {
+                startActivity(Intent(this, RegisterActivity::class.java))
+                isActivityLoaded = true
+            }
         }
 
+
+
         binding.btnLogin.setOnClickListener {
+        if (!isActivityLoaded) {
 //            if (!isLoginButtonSelected) {
 //                binding.btnLogin.setBackgroundResource(R.drawable.button_primary_selected)
 //                isLoginButtonSelected = true
@@ -47,10 +54,19 @@ class VisiActivity : AppCompatActivity(), OnMapReadyCallback {
 //            } else {
                 startActivity(Intent(this, LoginActivity::class.java))
 //            }
+            isActivityLoaded = true
         }
+    }
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.mapbanjar) as SupportMapFragment
         mapFragment.getMapAsync(this)
+    }
+
+    // Override metode onResume di aktivitas sumber
+    override fun onResume() {
+        super.onResume()
+        // Setel isActivityLoaded menjadi false agar aktivitas dapat dimuat lagi
+        isActivityLoaded = false
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

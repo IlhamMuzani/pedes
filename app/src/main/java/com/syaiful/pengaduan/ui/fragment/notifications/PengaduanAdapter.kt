@@ -23,7 +23,10 @@ class PengaduanAdapter(
     val clickListener: (DataPengaduan, Int, String) -> Unit,
     val detailClickListener: (DataPengaduan, Int) -> Unit // Tambahkan clickListener baru
 ) : RecyclerView.Adapter<PengaduanAdapter.ViewHolder>() {
-
+    private var isActivityLoaded = false
+    fun onRecyclerViewVisible() {
+        isActivityLoaded = false
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.adapter_mypengaduan, parent, false)
     )
@@ -32,6 +35,7 @@ class PengaduanAdapter(
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         holder.bind(dataPengaduan[position])
 
         // Set clickListener untuk item pengaduan
@@ -44,9 +48,14 @@ class PengaduanAdapter(
 
         // Set clickListener untuk layoutDetail
         holder.view.findViewById<View>(R.id.layoutmenunggu).setOnClickListener {
-            detailClickListener(dataPengaduan[position], position)
+            if (!isActivityLoaded) {
+                // Setel isActivityLoaded menjadi true sebelum melakukan intent
+                isActivityLoaded = true
+
+                detailClickListener(dataPengaduan[position], position)
             Constant.PENGADUAN_ID = dataPengaduan[position].id!!
             holder.itemView.context.startActivity(Intent(holder.itemView.context, DetailpengaduanActivity::class.java))
+            }
         }
     }
 

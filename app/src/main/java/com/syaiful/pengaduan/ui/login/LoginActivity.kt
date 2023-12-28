@@ -18,6 +18,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     lateinit var presenter: LoginPresenter
     lateinit var prefsManager: PrefsManager
+    private var isActivityLoaded = false
 
     private lateinit var sLoading: SweetAlertDialog
     private lateinit var sSuccess: SweetAlertDialog
@@ -71,7 +72,10 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         }
 
         binding.textViewRegister.setOnClickListener {
+            if (!isActivityLoaded) {
             startActivity(Intent(this, RegisterActivity::class.java))
+                isActivityLoaded = true
+            }
         }
 
         binding.tvLogin.setOnClickListener {
@@ -81,6 +85,12 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 //        txtlupapassword.setOnClickListener {
 //            startActivity(Intent(this, CheckUserActivity::class.java))
 //        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Setel isActivityLoaded menjadi false agar aktivitas dapat dimuat lagi
+        isActivityLoaded = false
     }
 
     override fun onLoading(loading: Boolean, message: String?) {
